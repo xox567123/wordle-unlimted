@@ -527,7 +527,7 @@
       </button>
   <h2>How to Play</h2>
   <p>Guess the five-letter word in six tries.</p>
-  <p>Each guess must contain exactly five letters.</p>
+  <p>Each guess must be a real five-letter word in the game dictionary.</p>
 
   <div class="example-row">
     <div class="example-tile correct">W</div>
@@ -536,6 +536,7 @@
     <div class="example-tile">D</div>
     <div class="example-tile">S</div>
   </div>
+
   <p><strong>W</strong> is in the word and in the correct position.</p>
 
   <div class="example-row">
@@ -545,6 +546,7 @@
     <div class="example-tile">N</div>
     <div class="example-tile">E</div>
   </div>
+
   <p><strong>L</strong> is in the word but in the wrong position.</p>
 
   <div class="example-row">
@@ -554,6 +556,7 @@
     <div class="example-tile">I</div>
     <div class="example-tile">R</div>
   </div>
+
   <p><strong>A</strong> is not in the word.</p>
 </div>
 
@@ -600,27 +603,101 @@
   </div>
   <script>
     const WORDS = [
-      "apple", "beach", "brain", "bread", "brick", "bring", "brown", "chair",
-      "charm", "chase", "cheap", "chest", "chief", "child", "clean", "clear",
-      "clock", "cloud", "coach", "coast", "could", "cream", "dance", "dream",
-      "drink", "drive", "earth", "faith", "field", "flame", "flash", "floor",
-      "focus", "force", "frame", "fresh", "front", "fruit", "giant", "glass",
-      "grace", "grade", "grain", "grand", "grant", "grass", "great", "green",
-      "group", "guide", "happy", "heart", "heavy", "horse", "hotel", "house",
-      "human", "ideal", "image", "juice", "light", "magic", "metal", "might",
-      "money", "month", "music", "night", "north", "ocean", "offer", "paint",
-      "paper", "party", "peace", "phone", "piece", "pilot", "place", "plane",
-      "plant", "plate", "point", "power", "pride", "queen", "quick", "quiet",
-      "radio", "raise", "reach", "river", "round", "royal", "scale", "score",
-      "shape", "share", "sharp", "sheep", "shirt", "shock", "short", "skill",
-      "sleep", "small", "smart", "smile", "sound", "south", "space", "sport",
-      "stand", "steam", "steel", "stone", "store", "storm", "story", "sweet",
-      "table", "teach", "theme", "thing", "tiger", "toast", "today", "touch",
-      "tower", "track", "train", "treat", "trend", "truck", "trust", "truth",
-      "under", "union", "value", "video", "visit", "voice", "waste", "watch",
-      "water", "wheel", "white", "whole", "woman", "world", "worry", "write",
-      "young", "zebra"
+      ...new Set(`
+        aback abase abate abbey abide abode abort about above abuse actor acute
+        adapt admit adopt adore adult after again agent agile aging agony agree
+        ahead aisle alarm album alert algae alias alibi alien align alike alive
+        alley allot allow alloy alone along aloof aloud alpha alter amber amend
+        amiss among ample amuse angel anger angle angry ankle annex antic anvil
+        apart apple apply apron aptly arena argue arise armor aroma arose array
+        arrow arson aside asset atlas atone audio audit avail avert avoid await
+        awake award aware awful badly baker baler basic basil basin basis batch
+        bathe baton beach beard beast began begin begun being belch belle belly
+        below bench berry berth beset bevel bible bicep biker birth black blade
+        blame bland blank blast blaze bleak bleed blend bless blind blink bliss
+        block blood bloom blown blues bluff blunt board boast bonus boost booth
+        bound bowel boxer brace braid brain brake brand brass brave bravo brawl
+        brawn bread break breed brick bride brief brine bring brink brisk broad
+        broil broke brood brook broom broth brown brush build built bunch bunny
+        burst buyer cable cabin cacao cache camel cameo candy canoe canon cargo
+        carry carve catch cater cause cedar chain chair chalk champ chant chaos
+        charm chart chase cheap cheat check cheek cheer chess chest chick chief
+        child chill china chirp choir chose chuck cider cigar circa civic civil
+        claim clamp clash clasp class clean clear clerk click cliff climb cling
+        cloak clock clone close cloth cloud clown coach coast cocoa colon color
+        comet comic comma coral couch cough could count court cover covet crack
+        craft crane crash crate crave crawl crazy cream creek creep crest crime
+        crisp croak crock crone cross crowd crown crude cruel crush crust cubic
+        curry curve cycle dairy daisy dance datum dealt death debut decal decay
+        decor delay delta demon denim dense depot depth diary digit diner dirty
+        disco ditch diver dizzy dodge doing donor doubt dough dozen draft drain
+        drama drank drape drawl drawn dread dream dress dried drift drill drink
+        drive drone drove drown eager eagle early earth ebony eight elbow elder
+        elect elite empty enact enemy enjoy enter entry equal equip erase erect
+        error erupt essay ether ethic evade event every exact exile exist extra
+        fable facet faint fairy faith false fancy fatal fault favor feast fence
+        ferry fever fiber field fiend fiery fifth fifty fight filer filet final
+        finch first fishy fixed fizzy flame flank flare flash flask fleck fleet
+        flesh flick fling flint float flock flood floor flour fluid fluke flush
+        flute focal focus foggy force forge forth forty forum found frame fraud
+        freak fresh friar fried frill frisk front frost froth fruit fudge fully
+        funny giant given giver glass gleam glide gloom glory glove glyph gnash
+        gnome going goose gorge gouge grace grade grain grand grant grape graph
+        grasp grass grave gravy great greed green greet grief grill grime grind
+        groan groin groom gross group grove growl grown guard guess guest guide
+        guild guilt habit hairy halve handy happy hardy harsh haste hasty haunt
+        haven heart heavy hedge hence hobby hoist honey honor horse hotel hound
+        house human humid humor hurry ideal idiom image imply inbox incur index
+        inept inert infer intro ionic irate issue ivory jazzy jelly jewel joint
+        joker jolly judge juice juicy jumbo knead kneel knife knock known label
+        labor laden lance large laser later laugh layer learn lease least leave
+        legal lemon level light lilac limit linen liner lingo lipid liver llama
+        local lodge lofty logic loose loser lotus lousy lover lower loyal lucky
+        lunch lying lyric magic major maker mango manor maple march marry marsh
+        mason match maybe mayor medal media medic melon mercy merge merit merry
+        metal meter might miner minor minus model money month moral motor motto
+        mount mouse mouth movie muddy music naive nasal naval nerve never newly
+        nicer niece night ninja noble noise north novel nurse nylon occur ocean
+        offer often olive onion opera orbit order organ other ought ounce outer
+        owner oxide ozone paint panel panic paper party pasta paste patch patio
+        pause peace peach pearl pedal penny phase phone piano piece pilot pinch
+        pixel pizza place plaid plain plane plank plant plate plaza plead pluck
+        plume point poker polar porch pound power prank press price pride prime
+        print prior prize proof prose proud prove queen query quest quick quiet
+        quilt quite quota quote rabbi radio rainy raise rally ranch range rapid
+        ratio reach react ready realm rebel refer reign relax relay renew repay
+        reply resin rider ridge rifle right risky rival river roast robin robot
+        rocky rogue roman rotor rough round route royal rugby ruler rural sadly
+        saint salad salon sauce scale scare scarf scene scent scope score scout
+        screw scrap sedan seize sense serve seven shade shaft shake shall shame
+        shape share shark sharp shave sheep sheer sheet shelf shell shift shine
+        shiny shirt shock shoot shore short shout shown shrub shrug sight sigma
+        silly since sixth sixty sized skate skill skirt skull slate slave sleek
+        sleep slice slide slime sling slope sloth small smart smash smell smile
+        smoke snack snail snake sneer solar solid solve sonic sorry sound south
+        space spare spark speak spear speed spell spend spice spicy spike spine
+        spite split spoil spoke spoon sport spray squad stack staff stage stain
+        stair stake stale stalk stamp stand stare stark start state steam steel
+        steep steer stern stick stiff still sting stink stock stole stone stood
+        stool store storm story stove strap straw stray strip stuck study stuff
+        style sugar suite sunny super surge sushi swamp swear sweat sweep sweet
+        swift swing sword table taken taste teach teeth tempo thank their theme
+        there thick thief thigh thing think third thorn those three threw throw
+        tiger tight timer tired title toast today token tooth topic torch total
+        touch tough towel tower toxic trace track trade trail train trait trash
+        treat trend trial tribe trick tried troop truck truly trunk trust truth
+        tulip twice uncle under union unity until upper upset urban usage usual
+        vague valid value valve vapor vault vegan venom venue verse video vigor
+        viral visit vital vivid vodka voice voter wacky wafer wager wagon waist
+        waste watch water weary weave wedge weird whale wheat wheel where which
+        while white whole whose widow width witch woman world worry worse worst
+        worth would wound write wrong yacht yearn yeast yield young youth zebra
+        zonal
+      `.trim().split(/\s+/)
+      )
     ];
+
+    const VALID_WORDS = new Set(WORDS);
 
     const MAX_ROWS = 6;
     const WORD_LENGTH = 5;
@@ -630,6 +707,7 @@
     let currentGuess = "";
     let gameOver = false;
     let acceptingInput = true;
+    let messageTimer;
 
     const board = document.getElementById("board");
     const message = document.getElementById("message");
@@ -651,6 +729,7 @@
             "aria-label",
             `Row ${row + 1}, letter ${column + 1}`
           );
+
           rowElement.appendChild(tile);
         }
 
@@ -670,6 +749,7 @@
 
     function startNewGame() {
       chooseAnswer();
+
       guesses = [];
       currentGuess = "";
       gameOver = false;
@@ -677,6 +757,7 @@
       shareButton.hidden = true;
       message.textContent = "";
 
+      clearTimeout(messageTimer);
       buildBoard();
 
       document.querySelectorAll(".key").forEach((key) => {
@@ -696,6 +777,7 @@
 
       for (let i = 0; i < WORD_LENGTH; i++) {
         const letter = currentGuess[i] || "";
+
         tiles[i].textContent = letter;
         tiles[i].classList.toggle("filled", Boolean(letter));
       }
@@ -725,15 +807,23 @@
 
     function submitGuess() {
       if (currentGuess.length !== WORD_LENGTH) {
-        showMessage("Not enough letters");
+        showTemporaryMessage("Not enough letters");
         shakeCurrentRow();
         return;
       }
 
       const guess = currentGuess.toLowerCase();
+
+      if (!VALID_WORDS.has(guess)) {
+        showTemporaryMessage("Not in word list");
+        shakeCurrentRow();
+        return;
+      }
+
       acceptingInput = false;
 
       const result = evaluateGuess(guess);
+
       guesses.push({
         word: guess,
         result
@@ -818,8 +908,8 @@
         correct: 3
       };
 
-      const existingState = ["correct", "present", "absent"].find((className) =>
-        key.classList.contains(className)
+      const existingState = ["correct", "present", "absent"].find(
+        (className) => key.classList.contains(className)
       );
 
       if (!existingState || priority[state] > priority[existingState]) {
@@ -872,7 +962,19 @@
     }
 
     function showMessage(text) {
+      clearTimeout(messageTimer);
       message.textContent = text;
+    }
+
+    function showTemporaryMessage(text) {
+      clearTimeout(messageTimer);
+      message.textContent = text;
+
+      messageTimer = setTimeout(() => {
+        if (!gameOver) {
+          message.textContent = "";
+        }
+      }, 1600);
     }
 
     function finishGame(won) {
@@ -931,6 +1033,7 @@
 
     function displayStats() {
       const stats = getStats();
+
       const winPercentage =
         stats.played === 0
           ? 0
@@ -940,7 +1043,8 @@
       document.getElementById("winPercentage").textContent = winPercentage;
       document.getElementById("currentStreak").textContent =
         stats.currentStreak;
-      document.getElementById("bestStreak").textContent = stats.bestStreak;
+      document.getElementById("bestStreak").textContent =
+        stats.bestStreak;
     }
 
     function openStats() {
@@ -965,8 +1069,14 @@
         .map((guess) =>
           guess.result
             .map((state) => {
-              if (state === "correct") return "🟩";
-              if (state === "present") return "🟨";
+              if (state === "correct") {
+                return "🟩";
+              }
+
+              if (state === "present") {
+                return "🟨";
+              }
+
               return "⬛";
             })
             .join("")
@@ -987,7 +1097,7 @@
           });
         } else {
           await navigator.clipboard.writeText(shareText);
-          showMessage("Results copied!");
+          showTemporaryMessage("Results copied!");
         }
       } catch (error) {
         if (error.name !== "AbortError") {
@@ -998,17 +1108,19 @@
 
     function fallbackCopy(text) {
       const textArea = document.createElement("textarea");
+
       textArea.value = text;
       textArea.style.position = "fixed";
       textArea.style.opacity = "0";
+
       document.body.appendChild(textArea);
       textArea.select();
 
       try {
         document.execCommand("copy");
-        showMessage("Results copied!");
+        showTemporaryMessage("Results copied!");
       } catch {
-        showMessage("Unable to copy results");
+        showTemporaryMessage("Unable to copy results");
       }
 
       textArea.remove();
@@ -1023,9 +1135,11 @@
     document.addEventListener("keydown", (event) => {
       if (document.querySelector(".modal-backdrop.open")) {
         if (event.key === "Escape") {
-          document.querySelectorAll(".modal-backdrop.open").forEach((modal) => {
-            modal.classList.remove("open");
-          });
+          document
+            .querySelectorAll(".modal-backdrop.open")
+            .forEach((modal) => {
+              modal.classList.remove("open");
+            });
         }
 
         return;
@@ -1033,25 +1147,34 @@
 
       const key = event.key.toLowerCase();
 
-      if (key === "enter" || key === "backspace" || /^[a-z]$/.test(key)) {
+      if (
+        key === "enter" ||
+        key === "backspace" ||
+        /^[a-z]$/.test(key)
+      ) {
         event.preventDefault();
         handleInput(key);
       }
     });
 
-    document.getElementById("helpButton").addEventListener("click", () => {
-      openModal("helpModal");
-    });
+    document
+      .getElementById("helpButton")
+      .addEventListener("click", () => {
+        openModal("helpModal");
+      });
 
-    document.getElementById("statsButton").addEventListener("click", openStats);
-    document.getElementById("newGameButton").addEventListener(
-      "click",
-      startNewGame
-    );
-    document.getElementById("modalNewGameButton").addEventListener(
-      "click",
-      startNewGame
-    );
+    document
+      .getElementById("statsButton")
+      .addEventListener("click", openStats);
+
+    document
+      .getElementById("newGameButton")
+      .addEventListener("click", startNewGame);
+
+    document
+      .getElementById("modalNewGameButton")
+      .addEventListener("click", startNewGame);
+
     shareButton.addEventListener("click", shareResults);
 
     document.querySelectorAll("[data-close]").forEach((button) => {
